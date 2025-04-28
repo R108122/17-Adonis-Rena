@@ -8,10 +8,9 @@
 <h1>CIW Advanced HTML5 and CSS3 Specialist</h1>
 <h2>Canvas Demonstration</h2>
 
-<canvas id="canvas" width="200" height="200" style="border:1px solid #000;"></canvas>
+<canvas id="canvas" width="250" height="250" style="border:1px solid #000;"></canvas>
 
 <script>
-    // Smiley face drawing using HTML5 Canvas
     function draw() {
         const canvas = document.getElementById('canvas');
         if (canvas.getContext) {
@@ -19,7 +18,7 @@
 
             // Outer circle (face)
             ctx.beginPath();
-            ctx.arc(100, 100, 75, 0, Math.PI * 2, true); 
+            ctx.arc(125, 125, 75, 0, Math.PI * 2, true); 
             ctx.fillStyle = "yellow";
             ctx.fill();
             ctx.lineWidth = 3;
@@ -28,18 +27,18 @@
 
             // Mouth
             ctx.beginPath();
-            ctx.arc(100, 100, 50, 0, Math.PI, false); 
+            ctx.arc(125, 125, 50, 0, Math.PI, false); 
             ctx.stroke();
 
             // Left eye
             ctx.beginPath();
-            ctx.arc(70, 80, 8, 0, Math.PI * 2, true);  
+            ctx.arc(95, 100, 8, 0, Math.PI * 2, true);  
             ctx.fillStyle = "black";
             ctx.fill();
 
             // Right eye
             ctx.beginPath();
-            ctx.arc(130, 80, 8, 0, Math.PI * 2, true); 
+            ctx.arc(155, 100, 8, 0, Math.PI * 2, true); 
             ctx.fill();
         }
     }
