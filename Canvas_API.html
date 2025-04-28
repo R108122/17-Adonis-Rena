@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>HTML5 Canvas API Example</title>
+</head>
+<body>
+<h1>CIW Advanced HTML5 and CSS3 Specialist</h1>
+<h2>Canvas Demonstration</h2>
+
+<canvas id="canvas" width="200" height="200" style="border:1px solid #000;"></canvas>
+
+<script>
+    // Smiley face drawing using HTML5 Canvas
+    function draw() {
+        const canvas = document.getElementById('canvas');
+        if (canvas.getContext) {
+            const ctx = canvas.getContext('2d');
+
+            // Outer circle (face)
+            ctx.beginPath();
+            ctx.arc(100, 100, 75, 0, Math.PI * 2, true); 
+            ctx.fillStyle = "yellow";
+            ctx.fill();
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+
+            // Mouth
+            ctx.beginPath();
+            ctx.arc(100, 100, 50, 0, Math.PI, false); 
+            ctx.stroke();
+
+            // Left eye
+            ctx.beginPath();
+            ctx.arc(70, 80, 8, 0, Math.PI * 2, true);  
+            ctx.fillStyle = "black";
+            ctx.fill();
+
+            // Right eye
+            ctx.beginPath();
+            ctx.arc(130, 80, 8, 0, Math.PI * 2, true); 
+            ctx.fill();
+        }
+    }
+
+    window.onload = draw;
+</script>
+
+</body>
+</html>
