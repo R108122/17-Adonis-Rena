@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HTML5 Drag and Drop API Example</title>
+
+<style>
+    #div1 {
+        width: 350px;
+        height: 150px;
+        padding: 10px;
+        border: 2px dashed #aaaaaa;
+        text-align: center;
+        line-height: 130px;
+        font-size: 16px;
+        color: #888;
+    }
+    #div1.dragover {
+        border-color: #5555ff;
+        background-color: #f0f8ff;
+        color: #333;
+    }
+</style>
+
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+    ev.target.classList.add("dragover");
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    var draggedElement = document.getElementById(data);
+    ev.target.appendChild(draggedElement);
+    ev.target.classList.remove("dragover");
+}
+
+function dragLeave(ev) {
+    ev.target.classList.remove("dragover");
+}
+</script>
+</head>
+
+<body>
+
+<h2>HTML5 Drag and Drop Demo</h2>
+<p>Drag the CIW image into the rectangle below:</p>
+
+<div id="div1" 
+    ondrop="drop(event)" 
+    ondragover="allowDrop(event)" 
+    ondragleave="dragLeave(event)">
+    Drop here
+</div>
+
+<br>
+
+<img id="drag1" src="logo/CIWLogo.png" alt="CIW Logo" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+</body>
+</html>
+
+
