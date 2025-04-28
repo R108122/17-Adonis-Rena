@@ -8,38 +8,33 @@
 <h1>CIW Advanced HTML5 and CSS3 Specialist</h1>
 <h2>Canvas Demonstration</h2>
 
-<canvas id="canvas" width="250" height="250" style="border:1px solid #000;"></canvas>
+<canvas id="canvas" width="300" height="300" style="border:1px solid #000;"></canvas>
 
 <script>
+    // Smiley face drawing using HTML5 Canvas
     function draw() {
         const canvas = document.getElementById('canvas');
         if (canvas.getContext) {
             const ctx = canvas.getContext('2d');
 
-            // Outer circle (face)
             ctx.beginPath();
-            ctx.arc(125, 125, 75, 0, Math.PI * 2, true); 
-            ctx.fillStyle = "yellow";
-            ctx.fill();
-            ctx.lineWidth = 3;
-            ctx.strokeStyle = "black";
-            ctx.stroke();
+
+            // Outer circle (face)
+            ctx.arc(150, 150, 100, 0, Math.PI * 2, true); 
 
             // Mouth
-            ctx.beginPath();
-            ctx.arc(125, 125, 50, 0, Math.PI, false); 
-            ctx.stroke();
+            // ctx.moveTo(200, 150); // <-- COMMENTED OUT
+            ctx.arc(150, 150, 50, 0, Math.PI, false); 
 
             // Left eye
-            ctx.beginPath();
-            ctx.arc(95, 100, 8, 0, Math.PI * 2, true);  
-            ctx.fillStyle = "black";
-            ctx.fill();
+            // ctx.moveTo(120, 120); // <-- COMMENTED OUT
+            ctx.arc(115, 120, 5, 0, Math.PI * 2, true);  
 
             // Right eye
-            ctx.beginPath();
-            ctx.arc(155, 100, 8, 0, Math.PI * 2, true); 
-            ctx.fill();
+            // ctx.moveTo(180, 120); // <-- COMMENTED OUT
+            ctx.arc(185, 120, 5, 0, Math.PI * 2, true); 
+
+            ctx.stroke();
         }
     }
 
