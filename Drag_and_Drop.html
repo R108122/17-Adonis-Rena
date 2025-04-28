@@ -10,8 +10,10 @@
         height: 150px;
         padding: 10px;
         border: 2px dashed #aaaaaa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-align: center;
-        line-height: 130px;
         font-size: 16px;
         color: #888;
     }
@@ -36,6 +38,7 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     var draggedElement = document.getElementById(data);
+    ev.target.innerHTML = ""; // Clear anything inside the box first
     ev.target.appendChild(draggedElement);
     ev.target.classList.remove("dragover");
 }
@@ -64,5 +67,6 @@ function dragLeave(ev) {
 
 </body>
 </html>
+
 
 
