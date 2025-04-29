@@ -8,7 +8,7 @@
 <h1>CIW Advanced HTML5 and CSS3 Specialist</h1>
 <h2>Canvas Demonstration</h2>
 
-<canvas id="canvas" width="200" height="200"></canvas>
+<canvas id="canvas" width="200" height="200" style="border:1px solid #000;"></canvas>
 
 <script>
 // Code adapted from https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Canvas_tutorial/Drawing_shapes
@@ -20,17 +20,29 @@ function draw() {
 
         ctx.beginPath();
         ctx.lineWidth = 3;
-        ctx.fillStyle = "#FFFF00"; // Yellow color set using hex number
+        ctx.fillStyle = "#FFFF00"; // Yellow color using hex
         ctx.arc(75,75,50,0,Math.PI*2,true); // Outer circle (face)
         ctx.fill();
-        
-        // ctx.moveTo(110,75); // <-- COMMENTED OUT
+
+        // RANDOMIZE: decide whether to moveTo or not
+        var useMoveTo = Math.random() < 0.5; 
+
+        // Mouth
+        if (useMoveTo) {
+            ctx.moveTo(110,75); 
+        }
         ctx.arc(75,75,35,0,Math.PI,false);   // Mouth (clockwise)
 
-        // ctx.moveTo(65,65); // <-- COMMENTED OUT
+        // Left Eye
+        if (useMoveTo) {
+            ctx.moveTo(65,65); 
+        }
         ctx.arc(60,65,5,0,Math.PI*2,true);  // Left eye
 
-        // ctx.moveTo(95,65); // <-- COMMENTED OUT
+        // Right Eye
+        if (useMoveTo) {
+            ctx.moveTo(95,65); 
+        }
         ctx.arc(90,65,5,0,Math.PI*2,true);  // Right eye
         
         ctx.stroke();
